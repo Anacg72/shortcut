@@ -1,4 +1,5 @@
 /*480, 768, 960*/
+
 .tittle{
 	text-align: center;
 
@@ -8,8 +9,9 @@
 	transform: translateX(-50%);  PARA CUANDO SEA UN LOGO Y NO UN TITULO*/
 }
 
-.header{
-	margin-bottom: 50px;
+.tittleLink{
+	text-decoration: none;
+	color: black;
 }
 
 .nav ul li{
@@ -34,6 +36,7 @@
 	max-width: 1200px;
 	margin: 0 auto;
 	justify-content: space-between;
+	background-color: rgba(0,0,0,.1);
 }
 
 .topleft{
@@ -48,7 +51,6 @@
 	display: flex;
 	padding: 10px;
 	justify-content: space-between;
-	background-color: black;
 }
 
 .nav, li{

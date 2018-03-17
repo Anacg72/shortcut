@@ -9,11 +9,10 @@
 		<?php include 'header.php' ?>
 
 		<div class="main">
-			<h2 class="mainTittle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-			consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-			cillum dolore eu fugiat nulla pariatur.</h2>
+			<h2 class="mainTittle">La plataforma donde los mejores freelancer e ideas se encuentran para dar vida a grandes proyectos.</h2>
+
+			<button class="mainButton">Conocé más.</button>
+
 		</div>
 	</div>
 </body>

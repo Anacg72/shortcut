@@ -8,13 +8,13 @@
 	<div class="header">
 		<div class="topleft">
 			<h1 class="tittle">
-				SHORCUT
+				<a href="./index.php" class="tittleLink">SHORTCUT</a>
 			</h1>
 			<nav class="nav">
 				<ul class="nav_list">
 					<li><a href="#" class="nav_a">Buscar proyecto</a></li>
 					<li><a href="#" class="nav_a">Encontrar freelancers</a></li>
-					<li><a href="#" class="nav_a">Como funciona</a></li>					
+					<li><a href="./faq.php" class="nav_a">Como funciona</a></li>					
 				</ul>
 			</nav>
 		</div>
