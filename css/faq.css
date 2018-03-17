@@ -1,0 +1,49 @@
+*{
+    box-sizing: border-box;
+}
+
+
+
+/*FIN RESET CODE*/
+
+.container{
+
+    width: 100%;
+    max-width: 1211px;
+    margin: 0 auto;
+}
+
+.titulomain{
+
+    margin-top: 61px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
+.main{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 25px;
+}
+
+.textomain{
+
+    text-align: justify;
+       margin-right: 70px;
+}
+
+.main2{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 114px;
+
+}
+
+
+.textomain2{
+
+    text-align: justify;
+       margin-left: 70px;
+       }
