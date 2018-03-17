@@ -1,0 +1,30 @@
+/* RESET CODE */
+*{
+	box-sizing: border-box;
+}
+ul {
+	padding: 0;
+}
+
+html, body{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	overflow-x: hidden;
+	font-family: sans-serif;
+}
+
+div, form, label {
+	margin: 0;
+	padding: 0;
+
+}
+
+h1; h2; h3; {
+	font-weight: normal;
+}
+
+img{
+	border: 0;
+}
+/* END RESET CODE */

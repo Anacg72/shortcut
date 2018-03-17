@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/style.css">
-	<title>SHORCAT</title>
+	<link rel="stylesheet" type="text/css" href="./css/resetcode.css">
+	<link rel="stylesheet" type="text/css" href="./css/header.css">
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<div class="topleft">
+	<div class="header">
+		<div class="topleft">
 			<h1 class="tittle">
-				SHORCAT
+				SHORCUT
 			</h1>
 			<nav class="nav">
 				<ul class="nav_list">
@@ -19,18 +18,15 @@
 				</ul>
 			</nav>
 		</div>
-			<div class="useroptions">
+
+		<div class="useroptions">
 			<nav class="nav">				
 				<ul class="registro">
 					<li><a href="#" class="nav_a">Iniciar sesión</a></li>
 					<li><a href="#" class="nav_a">Registrarse</a></li>
 				</ul>
 			</nav>
-			</div> 	
-		</div> 
-		<div class="main">
-			<img src="./images/background.jpg" class="bgimage">
-		</div>
-	</div>
+		</div> 	
+	</div> 
 </body>
 </html>
