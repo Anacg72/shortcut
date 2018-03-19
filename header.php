@@ -24,8 +24,8 @@
 		<div class="useroptions">
 			<nav class="nav">				
 				<ul class="registro">
-					<li><a href="#" class="nav_a">Iniciar sesión</a></li>
-					<li><a href="#" class="nav_a">Registrarse</a></li>
+					<li><a href="./login.php" class="nav_a">Iniciar sesión</a></li>
+					<li><a href="./register.php" class="nav_a">Registrarse</a></li>
 				</ul>
 			</nav>
 		</div> 	
