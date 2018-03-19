@@ -1,7 +1,7 @@
 /* MAIN */
 .main{
 	display: flex;
-	height: 385px;
+	height: 600px;
     text-align: center;
 	background-image: url("../images/background.jpg");
     background-repeat: no-repeat;

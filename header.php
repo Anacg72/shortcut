@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="./css/resetcode.css">
-	<link rel="stylesheet" type="text/css" href="./css/header.css">
+	<link rel="stylesheet" type="text/css" href="./css/simpleResetCode.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/headerStyle.css">
 </head>
 <body>
+	<div class="headerContainer">
 	<div class="header">
 		<div class="topleft">
 			<h1 class="tittle">
@@ -14,7 +16,7 @@
 				<ul class="nav_list">
 					<li><a href="#" class="nav_a">Buscar proyecto</a></li>
 					<li><a href="#" class="nav_a">Encontrar freelancers</a></li>
-					<li><a href="./faq.php" class="nav_a">Como funciona</a></li>					
+					<li><a href="./faq2.php" class="nav_a">Como funciona</a></li>					
 				</ul>
 			</nav>
 		</div>
@@ -27,6 +29,7 @@
 				</ul>
 			</nav>
 		</div> 	
+	</div> 
 	</div> 
 </body>
 </html>

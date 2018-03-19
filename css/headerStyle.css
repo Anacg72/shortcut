@@ -1,0 +1,97 @@
+.headerContainer{		
+	width: 100%;
+	background-color: #002663;
+	display: inline-block;
+}
+
+.tittle{
+	text-align: center;
+
+	/*
+	border-radius: 50%;
+	margin: 30px 50%;
+	transform: translateX(-50%);  PARA CUANDO SEA UN LOGO Y NO UN TITULO*/
+}
+
+.tittleLink{
+	text-decoration: none;
+	color: white;
+	border: solid 1px white;
+	border-radius: 5px;
+}
+
+.nav ul li{
+	display: block;
+	width: 100%;
+	margin: 1px auto;
+	padding: 15px 0px;
+	text-align: center;
+	background-color: #255096;
+}
+
+.nav ul li a{
+	text-decoration: none;
+	color: white;
+	text-transform: uppercase;
+}
+
+@media (min-width: 960px){	
+
+	.header{
+		display: flex;
+		max-width: 1200px;
+		padding-right: 0;
+		margin: 0 auto;
+		padding-left: 15px;
+		justify-content: space-between;
+	}
+
+	.topleft{
+		display: flex;
+	}
+
+	.tittle{
+		margin: auto;
+	}
+	.tittleLink{
+		color: white;
+	}	
+
+	.nav{
+		display: flex;
+		justify-content: space-between;
+		height: 50px;
+	}
+
+	.nav li{
+		display: flex;
+		align-items: center;
+
+		list-style: none;
+		display: inline-block;
+		padding: 0;
+		margin-left: 10px;
+	}
+
+	.nav ul li a{
+		color: white;
+	}
+
+	.nav ul li a:hover{
+		text-decoration: underline;		
+	}
+
+	.registro, .nav_list{
+		display:flex;
+		align-items: center;
+		font-size: .8em;
+		height: 90%;
+		padding-left: 3px;
+		padding-right: 3px;
+		margin: auto 0 ;
+	}
+
+	.nav ul li{
+		background-color: rgba(0,0,0,0);
+	}
+}

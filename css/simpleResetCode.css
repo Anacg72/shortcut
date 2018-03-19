@@ -6,6 +6,10 @@ ul {
 	padding: 0;
 }
 
+html{
+	overflow-y:scroll;
+}
+
 html, body{
 	margin: 0;
 	padding: 0;
