@@ -1,41 +1,60 @@
 /* MAIN */
+
+
+
 .main{
 	display: flex;
+	flex-direction: column;
+
+    align-items: center;
+   	justify-content: center;
+
 	height: 600px;
     text-align: center;
-	background-image: url("../images/background.jpg");
+	background-image: url("../images/iportado.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
     overflow: hidden;
+   opacity: 0.6px;
 
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+  
+ 	
 }
 .mainTittle{
-	background-color: rgba(0,0,0,.5);
-	width: 80%;
+	
 	margin: 0 auto;
 	border-radius: 10px;
-	color: white;
+	color: black;
+	font: bold 2.8em 'Open Sans', sans-serif;
+	color: beige;
+    font: bold 2.8em 'Open Sans', sans-serif;
+   	margin-left: 66px;
+    margin-right: 66px;
 
-	text-shadow:
-    -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-    1px 1px 0 #000; 
+
+
 }
 
 .mainButton{
-	background-color: #555555;
+
+
 	border: none;
 	padding: 12px 28px;
 	border-radius: 8px;
 	-webkit-transition-duration: 0.4s;
 	color: white;
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.60), 0 17px 50px 0 rgba(0,0,0,0.5);
+	margin-top: 73px;
+ font: bold 1.3em 'Open Sans', sans-serif;
+    background-color: #4da3f8;
+    border-color: #4da3f8;
+
 }
+
+
+
+
+
 
 @media (min-width: 960px){
 	.main{

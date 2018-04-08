@@ -1,6 +1,6 @@
 .headerContainer{		
 	width: 100%;
-	background-color: #002663;
+
 	display: inline-block;
 }
 
@@ -15,15 +15,14 @@
 
 .tittleLink{
 	text-decoration: none;
-	color: white;
-	border: solid 1px white;
+
 	border-radius: 5px;
 }
 
 .nav ul li{
 	display: block;
 	width: 100%;
-	margin: 1px auto;
+	margin: 1px 9px;
 	padding: 15px 0px;
 	text-align: center;
 	background-color: #255096;
@@ -31,9 +30,16 @@
 
 .nav ul li a{
 	text-decoration: none;
-	color: white;
+	color: black;
 	text-transform: uppercase;
 }
+
+
+
+
+
+
+
 
 @media (min-width: 960px){	
 
@@ -54,7 +60,7 @@
 		margin: auto;
 	}
 	.tittleLink{
-		color: white;
+		color: black;
 	}	
 
 	.nav{
@@ -74,7 +80,7 @@
 	}
 
 	.nav ul li a{
-		color: white;
+		color: black;
 	}
 
 	.nav ul li a:hover{
