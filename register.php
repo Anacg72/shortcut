@@ -2,7 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link href="css/registerStyle.css" rel="stylesheet">
+  <link href="..css/registerS.css" rel="stylesheet">
+
   <title>Registrarse</title>
 </head>
 <body>

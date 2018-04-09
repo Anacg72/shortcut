@@ -43,7 +43,7 @@ label{
 }
 
 .mainContainer{
-	background-image: url("../images/background.jpg");
+	background-image: ("../images/iportado.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
