@@ -1,0 +1,13 @@
+[
+    {
+        "email": "a@a.a",
+        "nombre": "qqq",
+        "apellido": "www",
+        "password": "$2y$10$GcuXgrNYtGLudQigDdJgau9WYGAno\/rzWOOJk9XELd3KwyqcH4e9u",
+        "genre": "masculino",
+        "birthdate": "2018-04-19",
+        "avatar": ".\/archivos\/imagen_1523327264.jpg",
+        "entidad": "freelancer",
+        "id": 1
+    }
+]

@@ -1,3 +1,15 @@
+<?php
+
+	if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+	}
+
+	if(isset($_GET["cerrarSesion"])){
+		session_destroy();
+		header("Location: login.php");
+	}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,8 +36,13 @@
 		<div class="useroptions">
 			<nav class="nav">				
 				<ul class="registro">
+					<?php if(!isset($_SESSION["usuario"])) : ?>
 					<li><a href="./login.php" class="nav_a">Iniciar sesión</a></li>
 					<li><a href="./register.php" class="nav_a">Registrarse</a></li>
+				<?php else : ?>
+					<li><a href="./profile.php" class="nav_a">Perfil</a></li>
+					<li><a href="./header.php?cerrarSesion" class="nav_a">Cerrar Sesión</a></li>
+				<?php endif; ?>
 				</ul>
 			</nav>
 		</div> 	

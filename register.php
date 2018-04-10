@@ -1,3 +1,13 @@
+<?php
+  if (session_status() == PHP_SESSION_NONE) {
+      session_start();
+  }
+
+  if(isset($_SESSION["usuario"])){
+      header("Location: profile.php");
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,10 +36,10 @@
   </div>
       <?php 
         if(isset($_GET["reg"]) && $_GET["reg"] == "freelancer"){
-          include "LogInFreelancers.php";
+          include "RegisterFreelancers.php";
         }
         else{
-          include "LogInCompanies.php";
+          include "RegisterCompanies.php";
         }
 
       ?>
