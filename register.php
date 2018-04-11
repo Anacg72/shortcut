@@ -36,10 +36,10 @@
   </div>
       <?php 
         if(isset($_GET["reg"]) && $_GET["reg"] == "freelancer"){
-          include "RegisterFreelancers.php";
+          include "registerFreelancers.php";
         }
         else{
-          include "RegisterCompanies.php";
+          include "registerCompanies.php";
         }
 
       ?>
