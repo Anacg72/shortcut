@@ -1,45 +1,21 @@
 <?php
-include 'header.php';
 
-function verificarDatos(){
-  if(array_key_exists("submitted", $_POST)){
-    if(array_key_exists("email", $_POST) && $_POST["email"]){
+require_once('ModifierManager.php');
 
-      $user["email"] = $_POST["email"];
-      $user["password"] = $_POST["password"];
+$modifManager = new ModifierManager();
 
-      $tmp = existeUsuarioSiExisteCambiarPassword($user, $user["password"]);
-      
-      if(!$tmp){
-        echo "Usuario incorrecto";
-      }
-      else{
-        header("Location: login.php");
-      }
-
-
+if(isset($_POST['submitted'])){
+  var_dump($_POST);
+  if(isset($_POST['email']) && $_POST['email'] && isset($_POST['password']) && $_POST['password']){
+    echo "ECHO";
+    if($modifManager->cambiarContraseñaUsuarioPorEmail($_POST['email'], $_POST['password'])){
+      NavegationManager::GoToLogin();
+    } else {
+      echo 'Usuario incorrecto';
     }
   }
 }
 
-function existeUsuarioSiExisteCambiarPassword($usuario, $nuevaPwd) {
-  $fileName = 'usuarios.json';
-  $usuarios = json_decode(file_get_contents($fileName),true);
-
-  if(!is_null($usuarios)) {
-    foreach ($usuarios as $key => $usuarioEnArchivo) {
-      if ($usuarioEnArchivo['email'] == $usuario['email']) {
-        $usuarios[$key]["password"] = password_hash($nuevaPwd, PASSWORD_DEFAULT);
-        file_put_contents($fileName, json_encode($usuarios, JSON_PRETTY_PRINT));
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-verificarDatos();
 ?>
 
 <!DOCTYPE html>
@@ -50,6 +26,8 @@ verificarDatos();
   <title>Olvide mi contraseña</title>
 </head>
 <body>
+
+  <?php include 'header.php'; ?>
 
   <br>
   <div class=mainContainer>  

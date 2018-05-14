@@ -1,28 +1,13 @@
 <?php
-  if (session_status() == PHP_SESSION_NONE) {
-      session_start();
-  }
-  
-  function verificarCierreSesion(){
-    if(array_key_exists("cerrarSesion", $_POST)){
-      session_destroy();
-      header("Location: login.php");
-      exit;
-    }
-  }
 
-  function verificarUsuarioLogueado(){
-    if(!isset($_SESSION["usuario"])){
-      header("Location: login.php");
-    } else
-    {
-      return $_SESSION["usuario"];
-    }
 
-  }
+require_once('SessionManager.php');
 
-  verificarCierreSesion();
-  $message =  verificarUsuarioLogueado();
+SessionManager::AbrirSession();
+SessionManager::VerificarCerrarSession();
+
+$message =  SessionManager::VerificarUsuarioLogueadoYReedirigirAlLogin();
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +18,7 @@
   <title>Registrarse</title>
 </head>
 <body>
-  <?php include 'header.php' ?>
+  <?php include 'header.php'; ?>
 
   <br>
   <div class=mainContainer>  
