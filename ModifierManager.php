@@ -75,8 +75,8 @@ class ModifierManager
 		}
 
 		RegisterManager::setListaUsuariosJSON($usuarios);
-		SessionManager::actualizarUsuarioEnSession($usuarios[$key]);
-		NavegationManager::GoToProfile();
+		SessionManager::actualizarUsuarioEnSession($usuarios[$key])
+;		NavegationManager::GoToProfile();
 	}
 
 	private function getKeyUserFromEmail($email){
