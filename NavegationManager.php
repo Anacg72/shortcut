@@ -9,7 +9,7 @@ class NavegationManager
 		header('Location: profile.php');
 	}
 	public static function GoToLogin(){
-		header('Location: login.php');
+		header('Location: login.php?reg=freelancer');
 	}
 	public static function GoToIndex(){
 		header('Location: index.php');

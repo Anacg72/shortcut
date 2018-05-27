@@ -8,6 +8,7 @@ SessionManager::VerificarCerrarSession();
 
 $message =  SessionManager::VerificarUsuarioLogueadoYReedirigirAlLogin();
 
+
 ?>
 
 <!DOCTYPE html>

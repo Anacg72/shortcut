@@ -7,7 +7,10 @@ SessionManager::VerificarUsuarioLogueadoYReedirigirAlLogin();
 $modifManager = new ModifierManager();
 
 if(isset($_POST["submitted"])){
-  $modifManager->ActualizarUsuario();
+  if($_SESSION["usuario"]['entidad'] == 'freelancer')
+    $modifManager->ActualizarFreelancerDB();
+  else
+    $modifManager->ActualizarCompanieDB();
 }
 
 ?>

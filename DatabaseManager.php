@@ -1,5 +1,5 @@
 <?php
-
+require_once('NavegationManager.php');
 /**
  * Dababase Manager Class
  */
@@ -20,16 +20,17 @@ class DatabaseManager
 	{
 		try {			
 			$this->dbm = $this->AbrirConexion();
-			echo 'Conectado a la base de datos sin crearla..'; 
+			////echo 'Conectado a la base de datos sin crearla..'; 
 
 		} catch (PDOException $e) {
 			try{
 				$this->CrearBaseDeDatos();				
 				$this->dbm = $this->AbrirConexion();
-				echo 'Creada base de datos y conectada..'; 
+				$this->CrearTablas();				
+				////echo 'Creada base de datos, tablas y conectada..'; 
 
 			}catch(PDOException $e){
-				echo 'Error al conectar con base de datos.';
+				//echo $e;
 			}
 		}
 
@@ -56,31 +57,121 @@ class DatabaseManager
 	}
 
 
-	private function BorrarBaseDeDatos(){
+	public function BorrarBaseDeDatos(){
 		$query = $this->dbm->prepare("drop database $this->dbname;");
 		$query->execute();
 	}
 
-	private function CrearTablas(){
-		'email' => 'dato',
-		'nombre' => 'dato',
-		'apellido' => 'dato',
-		'password' => 'dato',
-		'genre' => 'dato',
-		'birthdate' => 'dato',
-		'avatar' => 'file'
+	private function CrearTablaFreelancer(){
 
-		$query = $this->dbm->prepare("CREATE TABLE usuarios_freelancer(
-			id INT UNSIGNED PRIMATY KEY AUTO_INCREMENT,
-			email VARCHAR(500) NOT NULL,
-			nombre VARCHAR(500) NOT NULL,
-			apellido VARCHAR(500) NOT NULL,
-			password VARCHAR(500) NOT NULL,
-			genre VARCHAR(500) NOT NULL,
-			birthdate DATE NOT NULL,
-			avatar VARCHAR(500) NOT NULL);
-
+		$query = $this->dbm->prepare("
+			CREATE TABLE usuarios_freelancer(
+			id INT NOT NULL AUTO_INCREMENT,
+			email VARCHAR(500),
+			nombre VARCHAR(500),
+			apellido VARCHAR(500),
+			password VARCHAR(500),
+			genre VARCHAR(500),
+			birthdate DATE,
+			avatar VARCHAR(500),
+			PRIMARY KEY (id));
 			");
+		$query->execute();
+		
+	}
+
+	private function CrearTablaCompany(){
+		$query2 = $this->dbm->prepare("CREATE TABLE usuarios_company(
+			id int NOT NULL AUTO_INCREMENT,
+			email VARCHAR(500),
+			nombre_empresa VARCHAR(500),
+			password VARCHAR(500),
+			avatar VARCHAR(500),
+			PRIMARY KEY (id));
+			");
+
+		$query2->execute();
+	}
+
+	private function CrearTablas(){
+		$this->CrearTablaFreelancer();
+		$this->CrearTablaCompany();
+	}
+
+	public function GuardarUsuarioFreelancer($freelancer){
+		try{
+
+			$query = $this->dbm->prepare("
+				insert into usuarios_freelancer (email, password, nombre, apellido, genre, birthdate, avatar)  values ('$freelancer->email', '$freelancer->password', '$freelancer->nombre', '$freelancer->apellido', '$freelancer->genre', '$freelancer->birthdate', '$freelancer->avatar');
+				");
+
+			$query->execute();
+
+			NavegationManager::GoToLogin();
+
+		}catch(PDOException $e){
+			//echo $e;
+		}
+		
+		/*
+		INSERT INTO table_name (column1, column2, column3, ...)
+		VALUES (value1, value2, value3, ...);
+		*/
+	}
+
+	public function GuardarUsuarioCompany($freelancer){
+		try{
+
+			$query = $this->dbm->prepare("
+				insert into usuarios_company (email, password, nombre_empresa, avatar)  values ('$freelancer->email', '$freelancer->password', '$freelancer->nombre_empresa', '$freelancer->avatar');
+				");
+
+			$query->execute();
+
+			NavegationManager::GoToLogin();
+
+		}catch(PDOException $e){
+			//echo $e;
+		}
+		
+		/*
+		INSERT INTO table_name (column1, column2, column3, ...)
+		VALUES (value1, value2, value3, ...);
+		*/
+	}
+
+	public function ExisteFreelancerEnBD($email){
+		$query = $this->dbm->prepare("select * from usuarios_freelancer where email = '$email';");
+
+		$query->execute();
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public function ExisteCompanyEnBD($email){
+		$query = $this->dbm->prepare("select * from usuarios_company where email = '$email';");
+
+		$query->execute();		
+		$result = $query->fetch(PDO::FETCH_ASSOC);
+
+		return $result;
+	}
+
+	public function ActualizarFreelancer($email, $column, $value){
+		$query = $this->dbm->prepare("UPDATE usuarios_freelancer
+			SET $column = '$value'
+			WHERE email = '$email';");
+
+		$query->execute();
+	}
+
+	public function ActualizarCompanie($email, $column, $value){
+
+		$query = $this->dbm->prepare("UPDATE usuarios_company
+			SET $column = '$value'
+			WHERE email = '$email';");
+
 		$query->execute();
 	}
 

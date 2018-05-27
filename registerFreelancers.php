@@ -5,8 +5,8 @@ require_once('Freelancer.php');
 $registerManager = new registerManager();
 $usuario = new Freelancer();
 
-if($usuario->correctamenteSeteado()){
-  $registerManager->VerificarFormularioYGuardarUsuario($usuario);
+if($usuario->correctamenteSeteado()){  
+  $registerManager->GuardarUsuarioEnBD($usuario);
 }
 
 ?>

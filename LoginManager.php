@@ -1,13 +1,14 @@
 <?php 
 
 require_once('NavegationManager.php');
+require_once('DatabaseManager.php');
 
 /**
  * Login Manager Class
  */
 class LoginManager
 {
-	public function verificarDatos(){
+	public function verificarDatosJSON(){
 		if(array_key_exists("email", $_POST) && $_POST["email"]){
 
 			$user["email"] = $_POST["email"];
@@ -15,9 +16,9 @@ class LoginManager
 
 			$tmp = $this->existeUsuarioEnJSON($user);
 			if(!$tmp["existe"]){
-				echo "Usuario incorrecto";
+				return "Usuario incorrecto";
 			}else if(!password_verify($user["password"], $tmp["user"]["password"])){
-				echo "Contraseña incorrecta";
+				return "Contraseña incorrecta";
 			}else
 			{
           		//---------------INICIO DE SESION------------------//
@@ -51,5 +52,35 @@ class LoginManager
 			'user' => $user,
 			'existe'  => $existe
 		];
+	}
+
+	public function verificarDatosDB(){
+		if(array_key_exists("email", $_POST) && $_POST["email"]){
+
+			$user["email"] = $_POST["email"];
+			$user["password"] = $_POST["password"];
+
+			$dbm = new DatabaseManager();
+
+			if(array_key_exists('reg', $_GET) && $_GET['reg'] == 'freelancer'){
+				$tmp = $dbm->ExisteFreelancerEnBD($user['email']);
+			}
+			else {
+				$tmp = $dbm->ExisteCompanyEnBD($user['email']);
+			}
+			
+			if(!$tmp){
+				return "Usuario incorrecto";
+			}else if(!password_verify($user["password"], $tmp["password"])){
+				return "Contraseña incorrecta";
+			}else
+			{
+          		//---------------INICIO DE SESION------------------//
+				$tmp['entidad'] = $_GET['reg'];
+				$_SESSION["usuario"] = $tmp;
+				NavegationManager::GoToProfile();	
+			}
+
+		}
 	}
 }

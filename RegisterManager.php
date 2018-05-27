@@ -1,5 +1,7 @@
 <?php
 
+require_once('DatabaseManager.php');
+
 class RegisterManager
 {
 	private $JSON_PATH = 'usuarios.json';
@@ -32,7 +34,7 @@ class RegisterManager
 	}
 
 
-	public static function existeUsuario($usuario) {
+	public static function existeUsuarioJSON($usuario) {
 		$usuarios = json_decode(file_get_contents('usuarios.json'),true);
 
 		$last_id = 0;
@@ -87,11 +89,11 @@ class RegisterManager
 		file_put_contents($this->JSON_PATH, json_encode($usuarios, JSON_PRETTY_PRINT));
 	}
 
-	public function VerificarFormularioYGuardarUsuario(Usuario $usuario)
+	public function GuardarUsuarioSiNoExisteJSON(Usuario $usuario)
 	{
 		if (array_key_exists('submitted', $_POST)) {
 
-			$existeArray = $this->existeUsuario($usuario);
+			$existeArray = $this->existeUsuarioJSON($usuario);
 
 			if(!$existeArray['existe']) {
 
@@ -99,6 +101,8 @@ class RegisterManager
 
 					if($_POST['entitie'] == 'freelancer')
 						$this->guardarUsuarioFreelancerEnJSON($usuario, $existeArray['last_id']);
+					
+
 
 					elseif($_POST['entitie'] == 'companie')
 						$this->guardarUsuarioCompanieEnJSON($usuario, $existeArray['last_id']);
@@ -121,4 +125,31 @@ class RegisterManager
 	public static function setListaUsuariosJSON($usuarios){
 		file_put_contents('usuarios.json', json_encode($usuarios, JSON_PRETTY_PRINT));
 	}
+
+	public function GuardarUsuarioEnBD(Usuario $usuario){
+		if(!$this->ExisteUsuarioBD($usuario)){
+			$dbm = new DatabaseManager();
+
+			if($_POST['entitie'] == 'freelancer')
+				$dbm->GuardarUsuarioFreelancer($usuario);		
+
+
+			elseif($_POST['entitie'] == 'companie')
+				$dbm->GuardarUsuarioCompany($usuario);
+		}
+	}
+
+	public function ExisteUsuarioBD($usuario){
+		$dbm = new DatabaseManager();
+
+		if($_POST['entitie'] == 'freelancer')
+			return $dbm->ExisteFreelancerEnBD($usuario->email);		
+
+
+		elseif($_POST['entitie'] == 'companie')
+			return $dbm->ExisteCompanyEnBD($usuario->email);
+
+	}
+
+
 }

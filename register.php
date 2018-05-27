@@ -24,8 +24,8 @@ SessionManager::VerificarSessionYReedirigirAlPerfil();
 
       <form method="get">
         <select name="reg">
-          <option value="companie">Como empresa</option>
-          <option value="freelancer">Como freelancer</option>
+          <option value="companie" <?php if(array_key_exists('reg', $_GET) && $_GET['reg'] == 'companie') echo "selected" ?>>Como empresa</option>
+          <option value="freelancer" <?php if(array_key_exists('reg', $_GET) && $_GET['reg'] == 'freelancer') echo "selected" ?>>Como freelancer</option>
         </select>
 
         <button type="submit">Cambiar</button>

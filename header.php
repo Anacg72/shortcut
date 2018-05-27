@@ -34,7 +34,7 @@ SessionManager::VerificarCerrarSession();
 				<nav class="nav">				
 					<ul class="registro">
 						<?php if(!isset($_SESSION["usuario"])) : ?>
-							<li><a href="./login.php" class="nav_a">Iniciar sesión</a></li>
+							<li><a href="./login.php?reg=freelancer" class="nav_a">Iniciar sesión</a></li>
 							<li><a href="./register.php" class="nav_a">Registrarse</a></li>
 							<?php else : ?>
 								<li><a href="./profile.php" class="nav_a">Perfil</a></li>

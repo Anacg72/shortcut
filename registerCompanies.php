@@ -5,8 +5,8 @@ require_once('Companie.php');
 $registerManager = new registerManager();
 $usuario = new Companie();
 
-if($usuario->correctamenteSeteado()){
-  $registerManager->VerificarFormularioYGuardarUsuario($usuario);
+if($usuario->correctamenteSeteado()){  
+  $registerManager->GuardarUsuarioEnBD($usuario);
 }
 
 ?>
